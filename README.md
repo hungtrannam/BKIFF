@@ -45,8 +45,13 @@ BKIFF optimizes clustering by mitigating the impact of imbalanced data, enhancin
 ---
 
 ## Contributions
-Contributions and feedback are welcome! Please create an issue or submit a pull request to improve the project.
+Contributions and feedback are welcome! Please create an issue or submit a pull request to improve the project. Here are some ways you can help:
 
+Report bugs by creating an issue on the GitHub repository.
+
+Suggest improvements or new features.
+
+Submit pull requests with fixes or enhancements.
 ---
 
 ## Author
