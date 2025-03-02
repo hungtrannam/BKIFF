@@ -67,24 +67,7 @@ Below is a comparison of BKIFF's performance against other clustering methods:
 | Self-Updating Process | 0.95 | 0.90 | 0.50 |
 | **BKIFF (Proposed)** | **1.00** | **1.00** | **0.08** |
 
-## 8. Contribution and Development
-If you wish to contribute to the project, follow these steps:
-1. **Fork** the repository.
-2. **Create a new branch:**
-   ```bash
-   git checkout -b new_feature
-   ```
-3. **Make changes and commit:**
-   ```bash
-   git commit -m "Short description of the changes"
-   ```
-4. **Push your changes:**
-   ```bash
-   git push origin new_feature
-   ```
-5. **Create a Pull Request (PR) for review and merging.**
-
-## 9. Contact
+## 8. Contact
 For any questions or support requests, please contact:
 - **Email:** [hungtrannam@vlu.edu.vn]
 - **GitHub:** [https://github.com/hungtrannam/BKIFF]
