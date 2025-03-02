@@ -1,16 +1,16 @@
 # BKIFF: Black-winged Kite Improved Fuzzy Clustering
 
 ## 1. Introduction
-BKIFF (Black-winged Kite Improved Fuzzy Clustering) is an advanced clustering algorithm designed to handle uncertain and imbalanced data. This algorithm integrates the Black-winged Kite Optimization (BKO) method in the initialization phase and combines it with an Improved Fuzzy Clustering (IFF) framework to enhance accuracy, convergence, and stability.
+BKIFF (Black-winged Kite Improved Fuzzy Clustering) is an advanced clustering algorithm for uncertain and imbalanced data. In the initialization phase, it integrates the Black-winged Kite Optimization (BKO) method with an Improved Fuzzy Clustering (IFF) framework to enhance accuracy, convergence, and stability.
 
 BKIFF is particularly useful for clustering problems with uneven data distributions, such as medical diagnostics, ecological analysis, and complex data mining applications.
 
 ## 2. Key Features
 - **BKO-Based Initialization Optimization:** Determines optimal initialization points instead of random selection, improving efficiency and stability.
-- **Hellinger Distance Metric:** Enhances similarity measurement between probability density functions, ensuring better differentiation of clusters.
-- **Improved Fuzzy Clustering Framework (IFF):** Adjusts cluster weights to prevent small clusters from being overshadowed by larger ones.
+- **Hellinger Distance Metric:** Enhances similarity measurement between probability density functions, ensuring better cluster differentiation.
+The improved Fuzzy Clustering Framework (IFF) adjusts cluster weights to prevent smaller clusters from being overshadowed by larger ones.
 - **Superior Performance:** Validated through extensive experiments on synthetic and real-world datasets, achieving an ARI of 1.00 even in highly imbalanced scenarios.
-- **Versatile Applications:** Suitable for medical data analysis, biological data clustering, image segmentation, and large-scale data mining.
+Versatile Applications: It is Suitable for medical data analysis, biological data clustering, image segmentation, and large-scale data mining.
 
 ## 3. Project Structure
 The BKIFF project consists of the following main directories:
@@ -21,7 +21,7 @@ The BKIFF project consists of the following main directories:
 - **notebooks/**: Jupyter Notebooks for analysis and testing.
 
 ## 4. System Requirements
-- MATLAB version [x.x.x] or later.
+- MATLAB/Octave version 2024a or later.
 - Operating System: Windows, Linux, or macOS.
 - Required MATLAB toolboxes (if applicable), including Optimization Toolbox and Fuzzy Logic Toolbox.
 
