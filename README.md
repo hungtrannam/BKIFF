@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# BKIFF
-=======
 # BKIFF: Black-winged Kite Improved Fuzzy Clustering for Imbalanced Uncertain Data
 
 ## 1. Introduction
