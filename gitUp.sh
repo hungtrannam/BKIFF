@@ -1,4 +1,8 @@
 #!/bin/bash
+#!/usr/bin/env bash
+set -Eeuo pipefail
+trap 'echo "[ERR] Dừng tại dòng $LINENO"; exit 1' ERR
+
 set -e
 
 echo "[1/4] Kiểm tra repo..."
