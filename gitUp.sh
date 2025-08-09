@@ -1,13 +1,15 @@
-#!/usr/bin/env bash
-set -e
+#!/bin/bash
+
+REPO_URL="git@github.com:hungtrannam/BKIFF.git"
 BRANCH="main"
+DATETIME=$(date '+%Y-%m-%d %H:%M:%S')
+MSG="[$DATETIME] Initial commit"
 
-# Kiểm tra remote, nếu chưa có thì thêm
-if ! git remote | grep -q origin; then
-    git remote add origin git@github.com:hungtrannam/BKIFF.git
-fi
+echo "🚀 Khởi tạo Git và đẩy lên $REPO_URL"
 
-# Add, commit, push
+git init
+git remote add origin "$REPO_URL"
+git checkout -b "$BRANCH"
 git add -A
-git commit -m "[${BRANCH}] $(date '+%F %T')" || echo "⚠️ Không có thay đổi để commit"
+git commit -m "$MSG"
 git push -u origin "$BRANCH"
