@@ -1,0 +1,33 @@
+# ===== MATLAB temporary / backup files =====
+*.asv        # Auto-save backup file
+*.autosave   # Auto-save session
+
+# ===== MATLAB data & result files =====
+*.mat        # MAT-file (data/results)
+*.fig        # MATLAB figures
+*.mlx        # Live scripts (nếu không muốn share)
+*.mlappinstall
+*.slxc
+*.slx
+
+# ===== Temporary / cache directories =====
+tmp/
+cache/
+output/
+results/
+
+# ===== Image and plot outputs =====
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.bmp
+*.pdf
+
+# ===== OS generated files =====
+.DS_Store
+Thumbs.db
+
+# ===== Editor/IDE config =====
+*.code-workspace
+*.vscode/
