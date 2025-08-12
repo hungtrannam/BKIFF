@@ -2,7 +2,7 @@
 clear; clc; close all;
 
 if ~exist('EVA','dir'), mkdir('EVA'); end
-logFile = fopen('EVA/YESNO.txt', 'w');
+logFile = fopen('EVA/M2.txt', 'w');
 
 % === Add path metaheuristics (nếu cần cho Initializing) ===
 addpath '/home/hung-tran-nam/A_Clustering/OPTIMAL/WOA'
@@ -17,11 +17,11 @@ addpath '/home/hung-tran-nam/A_Clustering/OPTIMAL/ALO'
 IR_list = [20, 50, 80, 100];
 
 % === Quét mFuzzy ===
-m_list = [1.1, 1.5, 2, 2.5, 3, 10];
+m_list = [1.1, 1.5, 2, 2.5, 3, 5, 10];
 
 % === 2 phương pháp: IFF (IFCM_) và BKIFF (IFCM_NOBK) ===
-methods = {'IFCM_', 'IFCM_NOBK'};
-method_alias = struct('IFCM_','IFF','IFCM_NOBK','BKIFF');
+methods = {'IFCM_',};
+method_alias = struct('IFCM_','BKIFF');
 
 % Để tính overall trung bình sau cùng (trên các IR đã chọn)
 overallAverageMetrics = struct();
@@ -142,7 +142,7 @@ for IR = IR_list
     end
 
     % ---- Lưu theo IR & m ----
-    save(sprintf('EVA/YESNO_IR%d_all_m.mat', IR), 'metrics', 'averageMetrics', 'IR', 'm_list', 'methods');
+    save(sprintf('EVA/M2_IR%d_all_m.mat', IR), 'metrics', 'averageMetrics', 'IR', 'm_list', 'methods');
     % Lưu từng m riêng (tuỳ chọn)
     for mi = 1:numel(m_list)
         smetrics = struct();
@@ -150,7 +150,7 @@ for IR = IR_list
             method = methods{M};
             smetrics.(method) = metrics.(method)(mi);
         end
-        save(sprintf('EVA/YESNO_IR%d_m%.3f.mat', IR, m_list(mi)), 'smetrics', 'IR', 'methods');
+        save(sprintf('EVA/M2_IR%d_m%.3f.mat', IR, m_list(mi)), 'smetrics', 'IR', 'methods');
     end
 end % IR loop
 

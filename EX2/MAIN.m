@@ -2,7 +2,9 @@ clear;
 clc;
 close all;
 
-logFile = fopen('EVA/YESNO.txt', 'w');
+EFF = 'YESNO';
+
+logFile = fopen(sprintf('EVA/%s.txt',EFF), 'w');
 
 
 addpath '/home/hung-tran-nam/A_Clustering/OPTIMAL/WOA'
@@ -16,7 +18,7 @@ addpath '/home/hung-tran-nam/A_Clustering/OPTIMAL/ALO'
 % Khởi tạo cấu trúc để lưu trữ các chỉ số trung bình
 averageMetrics = struct();
 
-for IR = 1:100
+for IR = [20 50 80 100]
     filename = sprintf('Data/IR_%d.mat', IR);
     logMessage(logFile, sprintf('Đang tải file: %s', filename));
     load(filename)
@@ -36,16 +38,41 @@ for IR = 1:100
         best_tt = round(best_tt);
         param.fv = Data(:, best_tt);
 
-        % methods = { ...       % DIS
-        %     'IFCM_',          % Proposed
-        %     'IFCM_L',
-        %     'IFCM_CWD', 
-        %     'IFCM_L2',
-        %     };
-         methods = { ...       % YESNO
-            'IFCM_',          % Proposed
+
+
+      
+        switch EFF
+    case 'DIS'
+        methods = { ...   % DIS
+            'IFCM_',      % Proposed
+            'IFCM_L',
+            'IFCM_CWD',
+            'IFCM_L2',
+        };
+    case 'YESNO'
+        methods = { ...   % YESNO
+            'IFCM_',      % Proposed
             'IFCM_NOBK'
-            };
+        };
+    case 'EVA'
+        methods = { ...   % EVA
+            'IFCM_',      % Proposed
+            'FCM_CWD_',
+            'FCM_',
+            'KMEAN_',
+            'SUP_',
+        };
+    otherwise
+        error('EFF không hợp lệ: %s', EFF);
+end
+
+                
+         % methods = { ...       % YESNO
+         %    'IFCM_',          % Proposed
+         %    'IFCM_NOBK'
+         %    };
+
+
 
         for M = 1:length(methods) 
             method = methods{M};
@@ -87,7 +114,7 @@ for IR = 1:100
         averageMetrics.(method).Time(IR) = mean(metrics.(method).Time);
     end
 
-    save(sprintf('EVA/YESNO_%d.mat', IR), 'metrics', 'IR');
+    save(sprintf('EVA/%s_%d.mat',EFF, IR), 'metrics', 'IR');
 end % end for IR
 
 % Calculate overall average metrics across all IRs

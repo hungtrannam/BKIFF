@@ -2,14 +2,9 @@
 clear; clc;
 
 % --- Cấu hình ---
-type = 'EVA';                % ví dụ: 'YESNO', 'DIS', ...
+type = 'DIS';                % ví dụ: 'YESNO', 'DIS', ...
 IRs  = [20 50 80 100];         % các mức IR trong bảng
-cols = {       % Proposed
-            'FCM_CWD_',
-            'FCM_',
-            'KMEAN_',
-            'SUP_',
-            'IFCM_',}; % thứ tự cột trong bảng
+cols = {'L1','CWD','L2','H2'}; % thứ tự cột trong bảng
 
 metrics_list = {'ARI','NMI','Dunn','Silhouette','Time'};
 metric_keys = { ...
@@ -43,16 +38,14 @@ for ii = 1:nI
         
         % --- Xác định cột theo tên phương pháp ---
         switch upper(strtrim(mname))
+            case 'IFCM_L'
+                col_name = 'L1';
+            case 'IFCM_CWD'
+                col_name = 'CWD';
+            case 'IFCM_L2'
+                col_name = 'L2';
             case 'IFCM_'
-                col_name = 'IFCM_';
-            case 'FCM_CWD_'
-                col_name = 'FCM_CWD_';
-            case 'FCM_'
-                col_name = 'FCM_';
-            case 'KMEAN_'
-                col_name = 'KMEAN_';
-            case 'SUP_'
-                col_name = 'SUP_';
+                col_name = 'H2';
             otherwise
                 col_name = ''; % nếu không khớp thì bỏ qua
         end
@@ -116,7 +109,7 @@ for mi = 1:nM
             if isempty(v), v = '--'; end
             row{ci} = v;
         end
-        fprintf('& %4d & %s & %s & %s & %s & %s\\\\\n', IRs(ii), row{1}, row{2}, row{3}, row{4}, row{5});
+        fprintf('& %4d & %s & %s & %s & %s \\\\\n', IRs(ii), row{1}, row{2}, row{3}, row{4});
     end
     fprintf('\\midrule\n');
 end

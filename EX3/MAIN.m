@@ -19,7 +19,7 @@ addpath '/home/hung-tran-nam/A_Clustering/OPTIMAL/ALO'
 averageMetrics = struct();
 
 for IR = [20 50 80 100]
-    filename = sprintf('Data/IR_%d.mat', IR);
+    filename = sprintf('Data/Data/IR_%d.mat', IR);
     logMessage(logFile, sprintf('Đang tải file: %s', filename));
     load(filename)
     

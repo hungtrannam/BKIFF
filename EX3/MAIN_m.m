@@ -42,7 +42,7 @@ end
 
 % ======================= Vòng lặp qua IR =======================
 for IR = IR_list
-    filename = sprintf('Data/IR_%d.mat', IR);
+    filename = sprintf('Data/Data/IR_%d.mat', IR);
     logMessage(logFile, sprintf('Đang tải file: %s', filename));
     S = load(filename);
 

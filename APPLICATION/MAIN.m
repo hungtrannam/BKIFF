@@ -35,7 +35,7 @@ baseParam.Ran    = 1;
 labels_all = struct();
 
 % ---- Chạy cho k = 2..7 ----
-for kClust = 2:7
+for kClust = 2:11
     fprintf('=== Running IFCM with k = %d ===\n', kClust);
 
     % Param cho k hiện tại
