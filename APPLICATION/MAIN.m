@@ -28,9 +28,10 @@ outDir = 'EVA';
 baseParam = struct();
 baseParam.h      = S.h;     % theo định nghĩa khoảng cách của bạn (1D grid)
 baseParam.mFuzzy = 2;
-baseParam.Init   = 2;
+baseParam.Init   = 1;
 baseParam.Ran    = 1;
 
+addpath /home/hung-tran-nam/Downloads/BKIFF/OPTIMAL
 % ---- Lưu nhãn cho mọi k ----
 labels_all = struct();
 
@@ -62,14 +63,15 @@ for kClust = 2:11
     Cmap = lines(kClust);     % hoặc: lines(kClust), parula(kClust), turbo(kClust) (R2020a+)
     edgeW     = 0.8;        % viền mảnh để đỡ rối (nPatch=4096)
 
-    figure('Name',sprintf('IFCM k=%d', kClust), 'Color','w');
+    figure('Name',sprintf('BKIFF k=%d', kClust), 'Color','w');
+    temp(20,20,10);
 
     % (tuỳ chọn) KHÔNG kẻ lưới vì patch 4x4 rất dày; nếu thích, bật 2 vòng for kẻ lưới
     % for rr = 1:nRow-1, y = rr*P + 0.5; plot([0.5 W+0.5],[y y],'w-','LineWidth',0.25); end
     % for cc = 1:nCol-1, x = cc*P + 0.5; plot([x x],[0.5 H+0.5],'w-','LineWidth',0.25); end
 
     % ---- Vẽ overlay patch mờ ----
-    alphaFace = 0.2; % 0.0 = trong suốt hoàn toàn, 1.0 = che hoàn toàn
+    alphaFace = 0.55; % 0.0 = trong suốt hoàn toàn, 1.0 = che hoàn toàn
     I3 = repmat(mat2gray(I), [1,1,3]);  % Ảnh gốc dạng RGB [0..1]
     Overlay = I3;                       % Khởi tạo overlay
     
@@ -92,18 +94,12 @@ for kClust = 2:11
     end
     
     imshow(Overlay);
-    title(sprintf('IFCM (k=%d) — P=%d', kClust, P));
+    title(sprintf('BKIFF ($k=%d$)', kClust));
 
 
     % Lưu ảnh
-    outPNG = fullfile(outDir, sprintf('coins_IFCM_k%d_P%d.png', kClust, P));
+    outPNG = fullfile(outDir, sprintf('BKIFF_k%d.png', kClust));
     frame = getframe(gca); 
     imwrite(frame.cdata, outPNG);
     fprintf('Saved: %s\n', outPNG);
 end
-
-% ---- Lưu tất cả nhãn ra .mat ----
-save(fullfile(outDir,'coins_IFCM_labels_2to7.mat'), ...
-     'labels_all','P','targetSz','nRow','nCol');
-
-disp('Done.');

@@ -59,7 +59,10 @@ save('app2.mat', ...
 
 % --- Vẽ nhanh (tùy chọn) ---
 figure; 
-plot(grid, density); % vẽ 20 patch đầu
-xlabel('Cường độ [0..1]');
-ylabel('Mật độ');
-title('KDE cho một số patch');
+c = lines(1);
+t = tiledlayout(1, 1, 'Padding', 'compact', 'TileSpacing', 'compact');
+set(gcf, 'Color', 'w'); % nền trắng
+temp(20,20,10); hold on;
+plot(grid, density, color=c,LineStyle=":"); % vẽ 20 patch đầu
+xlabel('Scaled pixels [0..1]');
+ylabel('Density');hold off;
