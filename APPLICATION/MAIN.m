@@ -60,7 +60,7 @@ for kClust = 2:11
 
     % ---- Vẽ overlay patch theo màu cụm ----
     % Tạo bảng màu có kClust màu (có thể đổi 'hsv' -> 'lines' tuỳ gu)
-    Cmap = lines(kClust);     % hoặc: lines(kClust), parula(kClust), turbo(kClust) (R2020a+)
+    Cmap = abyss(kClust);     % hoặc: lines(kClust), parula(kClust), turbo(kClust) (R2020a+)
     edgeW     = 0.8;        % viền mảnh để đỡ rối (nPatch=4096)
 
     figure('Name',sprintf('BKIFF k=%d', kClust), 'Color','w');

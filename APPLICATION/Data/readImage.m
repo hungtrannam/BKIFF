@@ -21,7 +21,7 @@ nPatch = nRow * nCol;
 
 % --- Lưới giá trị cường độ (0..1) ---
 h = 0.01; % Step size for the grid
-grid = -0.2:h:1.2; % Range of values for the grid
+grid = -0.5:h:1.4; % Range of values for the grid
 density     = zeros(numel(grid), nPatch, 'double');
 bandwidths  = zeros(nPatch,1);   % Scott per-patch
 patch_rc    = zeros(nPatch,2);   % (rowIdx, colIdx)
